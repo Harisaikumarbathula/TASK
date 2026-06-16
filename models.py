@@ -39,10 +39,18 @@ class Order(Base):
     quantity = Column(Integer)
     user_id = Column(
         Integer,
-        ForeignKey("users.id")
+        ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE")
     )
 
     user = relationship(
         "User",
         back_populates="orders"
     )
+
+    @property
+    def name(self):
+        return self.user.name if self.user else None
+
+    @property
+    def email(self):
+        return self.user.email if self.user else None

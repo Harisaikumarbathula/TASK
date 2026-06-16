@@ -23,6 +23,8 @@ class OrderCreate(BaseModel):
 
 class OrderResponse(OrderCreate):
     id: int
+    name: str | None = None
+    email: str | None = None
 
     class Config:
         from_attributes = True
