@@ -39,7 +39,7 @@ class Order(Base):
     quantity = Column(Integer)
     user_id = Column(
         Integer,
-        ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE")
+        ForeignKey("users.id")
     )
 
     user = relationship(

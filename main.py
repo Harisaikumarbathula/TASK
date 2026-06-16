@@ -91,7 +91,7 @@ def delete_user(
 # ORDER CRUD
 # ==================================
 
-@app.post("/orders", response_model=schemas.OrderResponse)
+@app.post("/orders")
 def create_order(
     order: schemas.OrderCreate,
     db: Session = Depends(get_db)
@@ -101,13 +101,13 @@ def create_order(
         order
     )
 
-@app.get("/orders", response_model=list[schemas.OrderResponse])
+@app.get("/orders")
 def get_orders(
     db: Session = Depends(get_db)
 ):
     return crud.get_orders(db)
 
-@app.get("/orders/{order_id}", response_model=schemas.OrderResponse)
+@app.get("/orders/{order_id}")
 def get_order(
     order_id: int,
     db: Session = Depends(get_db)
