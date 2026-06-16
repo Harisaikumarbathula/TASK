@@ -23,6 +23,7 @@ class OrderCreate(BaseModel):
 
 class OrderResponse(OrderCreate):
     id: int
+    user: UserResponse
 
     class Config:
         from_attributes = True
